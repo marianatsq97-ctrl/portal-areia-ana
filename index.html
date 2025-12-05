@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
+<!-- saved from url=(0083)file:///C:/Users/areia/OneDrive/%C3%81rea%20de%20Trabalho/APP/portal-areia-ana.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <title>Portal de Acessos - Grupo Areia Ana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Ícone do site -->
-  <link rel="icon" href="logo-areia-ana.png" type="image/png">
-
   <style>
     :root {
       --bg: #050814;
@@ -34,33 +30,10 @@
 
     header {
       margin-bottom: 20px;
-      text-align: left;
     }
 
-    /* Caixa branca pra logo ficar com as cores originais */
-    .logo-box {
-      display: inline-block;
-      background: #ffffff;
-      padding: 8px 18px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-    }
-
-    .logo-areia {
-      max-width: 220px;
-      height: auto;
-      display: block;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 0 0 4px 0;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
+    h1 { font-size: 22px; margin: 0 0 4px 0; }
+    .subtitle { font-size: 13px; color: var(--text-soft); }
 
     /* MENU PRINCIPAL */
     .main-menu {
@@ -92,13 +65,8 @@
       border-color: var(--accent-soft);
     }
 
-    .section {
-      margin-bottom: 28px;
-    }
-
-    .hidden {
-      display: none;
-    }
+    .section { margin-bottom: 28px; }
+    .hidden { display: none; }
 
     .section-title {
       font-size: 18px;
@@ -129,15 +97,8 @@
       border-color: var(--accent-soft);
     }
 
-    .link-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .link-meta {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+    .link-title { font-size: 14px; font-weight: 600; }
+    .link-meta { font-size: 11px; color: var(--text-soft); }
   </style>
 </head>
 
@@ -146,20 +107,16 @@
 
   <!-- HEADER -->
   <header>
-    <div class="logo-box">
-      <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
-    </div>
-
     <h1>Portal de Acessos – Grupo Areia Ana</h1>
     <p class="subtitle">Escolha uma área e clique para abrir o painel ou sistema.</p>
   </header>
 
   <!-- MENU -->
   <div class="main-menu">
-    <button class="menu-btn active" data-section="indicadores">Indicadores</button>
-    <button class="menu-btn" data-section="comercial">Comercial</button>
-    <button class="menu-btn" data-section="rh">RH</button>
-    <button class="menu-btn" data-section="sistemas">Sistemas</button>
+    <button class="menu-btn active" onclick="showSection(&#39;indicadores&#39;, this)">Indicadores</button>
+    <button class="menu-btn" onclick="showSection(&#39;comercial&#39;, this)">Comercial</button>
+    <button class="menu-btn" onclick="showSection(&#39;rh&#39;, this)">RH</button>
+    <button class="menu-btn" onclick="showSection(&#39;sistemas&#39;, this)">Sistemas</button>
   </div>
 
   <!-- INDICADORES -->
@@ -277,33 +234,15 @@
 </div>
 
 <script>
-  // Controle das abas (Indicadores / Comercial / RH / Sistemas)
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".menu-btn");
-    const sections = document.querySelectorAll(".section");
+function showSection(id, btn) {
+  document.querySelectorAll(".section").forEach(sec => sec.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
 
-    function showSection(id) {
-      sections.forEach(sec => {
-        if (sec.id === id) {
-          sec.classList.remove("hidden");
-        } else {
-          sec.classList.add("hidden");
-        }
-      });
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-section");
-
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        showSection(target);
-      });
-    });
-  });
+  document.querySelectorAll(".menu-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+}
 </script>
 
-</body>
-</html>
+
+
+</body></html>

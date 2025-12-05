@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portal de Acessos - Grupo Areia Ana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Ícone do site / acesso rápido -->
+  <link rel="icon" href="logo-areia-ana.png" type="image/png">
+
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-card: #0b1020;
+      --bg-card-soft: #101629;
+      --accent: #ff7a1a;
+      --accent-soft: #ff9b4a;
+      --text: #f5f7ff;
+      --text-soft: #c2c7ff;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #151821 0, #050814 45%, #02030a 100%);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .logo-areia {
+      max-width: 220px;
+      height: auto;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 4px 0;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    /* MENU */
+    .main-menu {
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .menu-btn {
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 154, 74, 0.3);
+      background: linear-gradient(135deg, rgba(255,122,26,0.12), rgba(5,8,20,0.95));
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .15s;
+    }
+
+    .menu-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+      color: #050814;
+    }
+
+    .menu-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-soft);
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--accent-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .link-card {
+      padding: 12px 14px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 154, 74, 0.25);
+      text-decoration: none;
+      color: var(--text);
+      transition: .15s;
+      display: block;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-soft);
+      border-color: var(--accent-soft);
+    }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .link-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <!-- Logo aplicada -->
+    <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
+
+    <h1>Portal de Acessos – Grupo Areia Ana</h1>
+    <p class="subtitle">Escolha uma área e clique para abrir o painel ou sistema.</p>
+  </header>
+
+  <!-- MENU -->
+  <div class="main-menu">
+    <button class="menu-btn active" onclick="showSection('indicadores', this)">Indicadores</button>
+    <button class="menu-btn" onclick="showSection('comercial', this)">Comercial</button>
+    <button class="menu-btn" onclick="showSection('rh', this)">RH</button>
+    <button class="menu-btn" onclick="showSection('sistemas', this)">Sistemas</button>
+  </div>
+
+  <!-- SUAS SEÇÕES (IGUAIS A ANTES) -->
+  <!-- INDICADORES -->
+  <section id="indicadores" class="section">
+    <div class="section-title">Indicadores – Power BI</div>
+    <div class="grid">
+
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiNjM2OGI4ZmEtOTc3Zi00NjgzLWE3MDUtYzk0NDBmMDAyN2Y2IiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+        <div class="link-title">Painel de Pedidos Usina</div>
+        <div class="link-meta">Power BI</div>
+      </a>
+
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiM2Q3NzQ0ZDMtZjZmYy00MGJmLTg0NWYtNjU4YTlmMWUyMjUwIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+        <div class="link-title">Painel de Inadimplentes</div>
+        <div class="link-meta">Power BI</div>
+      </a>
+
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiN2JlMzJiZjQtMTcyZS00ZDAyLWIwZDQtYjQxMzM1ZmM4YTE0IiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+        <div class="link-title">Pedidos de Agregados</div>
+        <div class="link-meta">Power BI</div>
+      </a>
+
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMDlhYjhkNDktZWExNC00MTNhLTg2MDctZTYxOWIyZTNjMjM0IiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+        <div class="link-title">Gastos por Fornecedor / Equipamentos</div>
+        <div class="link-meta">Power BI</div>
+      </a>
+
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWYtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+        <div class="link-title">Painel DRE</div>
+        <div class="link-meta">Power BI</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- AS DEMAIS SEÇÕES PERMANECEM IGUAIS (COMERCIAL, RH, SISTEMAS) -->
+
+</div>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll(".section").forEach(sec => sec.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+
+  document.querySelectorAll(".menu-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+}
+</script>
+
+</body>
+</html>

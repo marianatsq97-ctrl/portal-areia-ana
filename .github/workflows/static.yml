@@ -37,10 +37,18 @@
       text-align: left;
     }
 
+    /* Caixa branca pra logo ficar com as cores originais */
+    .logo-box {
+      display: inline-block;
+      background: #ffffff;
+      padding: 8px 18px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
     .logo-areia {
       max-width: 220px;
       height: auto;
-      margin-bottom: 10px;
       display: block;
     }
 
@@ -138,14 +146,16 @@
 
   <!-- HEADER -->
   <header>
-    <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
+    <div class="logo-box">
+      <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
+    </div>
+
     <h1>Portal de Acessos – Grupo Areia Ana</h1>
     <p class="subtitle">Escolha uma área e clique para abrir o painel ou sistema.</p>
   </header>
 
   <!-- MENU -->
   <div class="main-menu">
-    <!-- repare que agora usamos data-section, sem onclick -->
     <button class="menu-btn active" data-section="indicadores">Indicadores</button>
     <button class="menu-btn" data-section="comercial">Comercial</button>
     <button class="menu-btn" data-section="rh">RH</button>
@@ -177,7 +187,7 @@
         <div class="link-meta">Power BI</div>
       </a>
 
-      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWYtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
         <div class="link-title">Painel DRE</div>
         <div class="link-meta">Power BI</div>
       </a>
@@ -267,7 +277,7 @@
 </div>
 
 <script>
-  // script SEM inline onclick – mais seguro em hospedagem
+  // Controle das abas (Indicadores / Comercial / RH / Sistemas)
   document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".menu-btn");
     const sections = document.querySelectorAll(".section");
@@ -286,11 +296,9 @@
       btn.addEventListener("click", () => {
         const target = btn.getAttribute("data-section");
 
-        // troca aba ativa
         buttons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        // mostra seção
         showSection(target);
       });
     });

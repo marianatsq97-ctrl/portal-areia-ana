@@ -156,10 +156,10 @@
 
   <!-- MENU -->
   <div class="main-menu">
-    <button class="menu-btn active" data-section="indicadores">Indicadores</button>
-    <button class="menu-btn" data-section="comercial">Comercial</button>
-    <button class="menu-btn" data-section="rh">RH</button>
-    <button class="menu-btn" data-section="sistemas">Sistemas</button>
+    <button class="menu-btn active" onclick="switchTab('indicadores', this)">Indicadores</button>
+    <button class="menu-btn" onclick="switchTab('comercial', this)">Comercial</button>
+    <button class="menu-btn" onclick="switchTab('rh', this)">RH</button>
+    <button class="menu-btn" onclick="switchTab('sistemas', this)">Sistemas</button>
   </div>
 
   <!-- INDICADORES -->
@@ -187,7 +187,7 @@
         <div class="link-meta">Power BI</div>
       </a>
 
-      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWYtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
         <div class="link-title">Painel DRE</div>
         <div class="link-meta">Power BI</div>
       </a>
@@ -277,32 +277,25 @@
 </div>
 
 <script>
-  // Controle das abas (Indicadores / Comercial / RH / Sistemas)
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".menu-btn");
-    const sections = document.querySelectorAll(".section");
-
-    function showSection(id) {
-      sections.forEach(sec => {
-        if (sec.id === id) {
-          sec.classList.remove("hidden");
-        } else {
-          sec.classList.add("hidden");
-        }
-      });
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-section");
-
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        showSection(target);
-      });
+  // função simples pra trocar de aba
+  function switchTab(id, btn) {
+    // esconde todas as seções
+    document.querySelectorAll('.section').forEach(sec => {
+      if (sec.id === id) {
+        sec.classList.remove('hidden');
+      } else {
+        sec.classList.add('hidden');
+      }
     });
-  });
+
+    // tira "active" de todos os botões
+    document.querySelectorAll('.menu-btn').forEach(b => {
+      b.classList.remove('active');
+    });
+
+    // deixa o botão clicado ativo
+    btn.classList.add('active');
+  }
 </script>
 
 </body>

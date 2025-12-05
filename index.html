@@ -37,19 +37,15 @@
       text-align: left;
     }
 
-    /* Caixa branca pra logo ficar com as cores originais */
-    .logo-box {
-      display: inline-block;
-      background: #ffffff;
-      padding: 8px 18px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-    }
-
+    /* LOGO COM FUNDO BRANCO RETO */
     .logo-areia {
       max-width: 220px;
       height: auto;
-      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #ffffff;
+      display: inline-block;
+      /* sem borda arredondada pra ficar retão */
     }
 
     h1 {
@@ -62,7 +58,7 @@
       color: var(--text-soft);
     }
 
-    /* MENU PRINCIPAL */
+    /* MENU */
     .main-menu {
       margin: 24px 0;
       display: grid;
@@ -146,21 +142,20 @@
 
   <!-- HEADER -->
   <header>
-    <div class="logo-box">
-      <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
-    </div>
-
+    <img src="logo-areia-ana.png" class="logo-areia" alt="Logo Grupo Areia Ana">
     <h1>Portal de Acessos – Grupo Areia Ana</h1>
     <p class="subtitle">Escolha uma área e clique para abrir o painel ou sistema.</p>
   </header>
 
   <!-- MENU -->
   <div class="main-menu">
-    <button class="menu-btn active" data-section="indicadores">Indicadores</button>
-    <button class="menu-btn" data-section="comercial">Comercial</button>
-    <button class="menu-btn" data-section="rh">RH</button>
-    <button class="menu-btn" data-section="sistemas">Sistemas</button>
+    <button class="menu-btn active" onclick="showSection('indicadores', this)">Indicadores</button>
+    <button class="menu-btn" onclick="showSection('comercial', this)">Comercial</button>
+    <button class="menu-btn" onclick="showSection('rh', this)">RH</button>
+    <button class="menu-btn" onclick="showSection('sistemas', this)">Sistemas</button>
   </div>
+
+  <!-- ===================== SEÇÕES ===================== -->
 
   <!-- INDICADORES -->
   <section id="indicadores" class="section">
@@ -187,7 +182,7 @@
         <div class="link-meta">Power BI</div>
       </a>
 
-      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
+      <a class="link-card" target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiMjdhNGJhYWYtOWIxMC00NzJmLWE1NTAtMmFkYmY0ZjgwYmZjIiwidCI6ImNjYjc4MDg1LWRkNjMtNDM3Ny05MWRjLTQ4MjQ0MjRhYzViZiJ9">
         <div class="link-title">Painel DRE</div>
         <div class="link-meta">Power BI</div>
       </a>
@@ -197,112 +192,55 @@
 
   <!-- COMERCIAL -->
   <section id="comercial" class="section hidden">
-    <div class="section-title">Comercial – ClickUp</div>
+    <div class="section-title">Comercial</div>
     <div class="grid">
-
-      <a class="link-card" target="_blank" href="https://sharing.clickup.com/9007105436/l/h/8cdv1cw">
-        <div class="link-title">Lista Geral / Acesso</div>
-        <div class="link-meta">ClickUp</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://sharing.clickup.com/9007105436/l/h/8cdv1cw/11213/9e63db75b1c3352">
-        <div class="link-title">Carteira Márcio</div>
-        <div class="link-meta">ClickUp</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://sharing.clickup.com/9007105436/l/h/8cdv1cw/24473/3aeab89b75124c2">
-        <div class="link-title">Carteira Anderson</div>
-        <div class="link-meta">ClickUp</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://sharing.clickup.com/9007105436/l/h/8cdv1cw/12053/62f6757b0d8af35">
-        <div class="link-title">Carteira Geral por Produto</div>
-        <div class="link-meta">ClickUp</div>
-      </a>
-
+      <!-- Troca estes 'div' pelos teus links reais -->
+      <div class="link-card">
+        <div class="link-title">Em breve</div>
+        <div class="link-meta">Links da área comercial</div>
+      </div>
     </div>
   </section>
 
   <!-- RH -->
   <section id="rh" class="section hidden">
-    <div class="section-title">RH</div>
+    <div class="section-title">Recursos Humanos</div>
     <div class="grid">
-
-      <a class="link-card" target="_blank" href="https://superportal-empregador.vr.com.br/pontomais">
-        <div class="link-title">Ponto Mais</div>
-        <div class="link-meta">Controle de Ponto</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://sistema.rhgestor.com.br/login?ReturnUrl=%2fPainel%2fIndexMaster">
-        <div class="link-title">RH Gestor</div>
-        <div class="link-meta">Sistema de RH</div>
-      </a>
-
+      <div class="link-card">
+        <div class="link-title">Em breve</div>
+        <div class="link-meta">Links da área de RH</div>
+      </div>
     </div>
   </section>
 
   <!-- SISTEMAS -->
   <section id="sistemas" class="section hidden">
-    <div class="section-title">Sistemas Gerais</div>
+    <div class="section-title">Sistemas</div>
     <div class="grid">
-
-      <a class="link-card" target="_blank" href="https://webmail-seguro.com.br/areiaana.com.br/">
-        <div class="link-title">LocalWeb – Webmail</div>
-        <div class="link-meta">Webmail Areia Ana</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://areiaana-remote.topconsuite.app:20200/pages/auth/login">
-        <div class="link-title">Topcon CRM</div>
-        <div class="link-meta">CRM – Topcon</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://analytics.zoho.com/workspace/1762700000040012018">
-        <div class="link-title">Topcon BI</div>
-        <div class="link-meta">Dashboards – Topcon BI</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://areiaana.rastrin.app/">
-        <div class="link-title">Topcon Fleet</div>
-        <div class="link-meta">Gestão de Frotas – Topcon Fleet</div>
-      </a>
-
-      <a class="link-card" target="_blank" href="https://areiaana.topconsuite.app/">
-        <div class="link-title">Topcon Tech</div>
-        <div class="link-meta">Portal Topcon Tech</div>
-      </a>
-
+      <div class="link-card">
+        <div class="link-title">Em breve</div>
+        <div class="link-meta">Links de sistemas internos</div>
+      </div>
     </div>
   </section>
 
 </div>
 
 <script>
-  // Controle das abas (Indicadores / Comercial / RH / Sistemas)
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".menu-btn");
-    const sections = document.querySelectorAll(".section");
+function showSection(id, btn) {
+  // Esconde todas as seções
+  document.querySelectorAll(".section").forEach(sec => sec.classList.add("hidden"));
 
-    function showSection(id) {
-      sections.forEach(sec => {
-        if (sec.id === id) {
-          sec.classList.remove("hidden");
-        } else {
-          sec.classList.add("hidden");
-        }
-      });
-    }
+  // Mostra só a seção clicada (se existir)
+  const sec = document.getElementById(id);
+  if (sec) {
+    sec.classList.remove("hidden");
+  }
 
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-section");
-
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        showSection(target);
-      });
-    });
-  });
+  // Atualiza o botão ativo
+  document.querySelectorAll(".menu-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+}
 </script>
 
 </body>
